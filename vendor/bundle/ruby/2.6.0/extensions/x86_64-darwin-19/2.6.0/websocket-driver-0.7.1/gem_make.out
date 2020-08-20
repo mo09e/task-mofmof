@@ -1,0 +1,15 @@
+current directory: /Users/akahanemoe/workspace/gh-task/dev-exam/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+/Users/akahanemoe/.rbenv/versions/2.6.3/bin/ruby -I /Users/akahanemoe/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200820-65379-kd8toh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/akahanemoe/workspace/gh-task/dev-exam/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/akahanemoe/workspace/gh-task/dev-exam/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/akahanemoe/workspace/gh-task/dev-exam/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20200820-65379-lv9pi0
