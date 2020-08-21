@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
+    
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: '物件情報を登録しました。' }
@@ -71,6 +71,6 @@ class PropertiesController < ApplicationController
 
   def property_params
     params.require(:property).permit(:name, :rent, :address, :age, :remarks,
-                                     nearest_station_attributes: [:route_name, :station, :minute_walk])
+                                     nearest_station_attributes: [:route_name, :station, :minute_walk, :_destroy, :id])
   end
 end
