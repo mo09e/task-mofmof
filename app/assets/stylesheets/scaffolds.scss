@@ -32,12 +32,23 @@ a {
   }
 }
 
+.toptable {
+  border-collapse: collapse;
+  border-spacing: 5px;
+  width: 90%;
+  text-align: left;
+}
+
 th {
   padding-bottom: 5px;
 }
 
 td {
   padding: 0 5px 7px;
+}
+
+#remarks {
+  width: 60%;
 }
 
 div {

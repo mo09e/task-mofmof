@@ -2,7 +2,7 @@
 
 <h1>物件一覧</h1>
 
-<table>
+<table class="toptable">
   <thead>
     <tr>
       <th>物件名</th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= property.name %></td>
-        <td><%= property.rent %>円</td>
-        <td><%= property.address %></td>
-        <td><%= property.age %>年</td>
-        <td><%= property.remarks %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td id="name"><%= property.name %></td>
+        <td id="rent"><%= property.rent %>円</td>
+        <td id="address"><%= property.address %></td>
+        <td id="age"><%= property.age %>年</td>
+        <td id="remarks"><%= property.remarks %></td>
+        <td><%= link_to '閲覧', property %></td>
+        <td><%= link_to '編集', edit_property_path(property) %></td>
+        <td><%= link_to '削除', property, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to '物件を登録する', new_property_path %>
