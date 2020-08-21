@@ -10,15 +10,18 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @nearest_stations = @property.nearest_stations
   end
 
   # GET /properties/new
   def new
     @property = Property.new
+    2.times { @property.nearest_stations.build }
   end
 
   # GET /properties/1/edit
   def edit
+    @property.nearest_stations.build
   end
 
   # POST /properties
@@ -28,7 +31,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+        format.html { redirect_to @property, notice: '物件情報を登録しました。' }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.html { redirect_to @property, notice: '物件情報を編集しました。' }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit }
@@ -56,19 +59,18 @@ class PropertiesController < ApplicationController
   def destroy
     @property.destroy
     respond_to do |format|
-      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
+      format.html { redirect_to properties_url, notice: '物件情報を削除しました。' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
+  def set_property
+    @property = Property.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def property_params
-      params.require(:property).permit(:name, :rent, :address, :age, :remarks)
-    end
+  def property_params
+    params.require(:property).permit(:name, :rent, :address, :age, :remarks,
+                                     nearest_station_attributes: [:route_name, :station, :minute_walk])
+  end
 end
